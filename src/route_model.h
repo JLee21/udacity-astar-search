@@ -30,24 +30,18 @@ class RouteModel : public Model {
         
       
       private:
-        // Add private Node variables and methods here.
         int index;
         RouteModel * parent_model = nullptr;
         RouteModel::Node * FindNeighbor(std::vector<int> node_indices);
     };
     
-    // Add public RouteModel variables and methods here.
     RouteModel(const std::vector<std::byte> &xml);  
-    // This variable will eventually store the path that is found by the A* search.
     std::vector<Node> path; 
-    // Add a public "getter" method `SNodes`. This method should return a reference to the vector of `Nodes` stored as `m_Nodes`.
     auto &SNodes() { return m_Nodes;}
     auto &GetNodeToRoadMap() { return node_to_road; }
     Node &FindClosestNode(float x, float y);
 
   private:
-    // Add private RouteModel variables and methods here.
-    //1. Add a private vector of `Node` objects named `m_Nodes`. This will store all of the nodes from the Open Street Map data.
     std::vector<Node> m_Nodes;
   	std::unordered_map<int, std::vector<const Model::Road*>> node_to_road;
   	void CreateNodeToRoadHashmap();

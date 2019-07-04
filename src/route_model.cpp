@@ -3,8 +3,7 @@
 
   RouteModel::RouteModel(const std::vector<std::byte> &xml) : Model(xml)
   {
-      // B/c we extend the Model class, we get access to Nodes() by using
-      // this keyword
+      // We extend the Model class to get access to Nodes() by using this keyword
       int counter = 0;
       for (Model::Node node : this->Nodes())
       {
@@ -19,7 +18,8 @@
     for (const Model::Road &road : Roads()) {
       if (road.type != Model::Road::Type::Footway) {
         for (int node_index : Ways()[road.way].nodes) {
-          // If the node index is not in the node_to_road hashmap yet, set the value for the node_idx key to be an empty vector of const Model::Road* objects.
+          // If the node index is not in the node_to_road hashmap yet, 
+          // set the value for the node_idx key to be an empty vector of const Model::Road* objects.
           if (node_to_road.find(node_index) == node_to_road.end()) {
             node_to_road[node_index] = std::vector<const Model::Road*> ();
           }
@@ -38,7 +38,7 @@
     for (int node_index : node_indices) {
       node = parent_model->SNodes()[node_index];
       if ( this->distance(node) != 0.0 && !node.visited){
-        // If the closest_node equals nullptr, _or_ the distance from this to node is less than the distance from this to *closest_node
+        // If the closest_node equals nullptr, or the distance from this to node is less than the distance from this to *closest_node
         if (closest_node == nullptr || this->distance(node) < this->distance(*closest_node)) {
           closest_node = &parent_model->SNodes()[node_index];
         }
