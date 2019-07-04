@@ -1,0 +1,5 @@
+*.swp
+*.osm
+*.o
+build/
+bin/
