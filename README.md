@@ -2,13 +2,27 @@
 
 For exercises that have unit tests, the project must be built with the approprate test cpp file. This can be done by using `cmake_tests` instead of `cmake`. For example, from the build directory:
 ```
+cd build
 cmake_tests ..
 make
-```
-Those commands will build the code with the appropriate tests exercise. The tests can then be run from the `build` directory as follows:
-```
 ../bin/test
 ```
+
+Find the tests here ->
+
+`/home/workspace/CppND-Route-Planning-Project/test/utest_rp_a_star_search.cpp`
+
+## Run
+
+Within the virtualized desktop and inside the VSCode terminal
+
+```bash
+cd build
+cmake ..
+make
+../bin/CppND-Route-Planning-Project -f ../map.osm
+```
+
 Not all exercises have tests. The table is given below with the complete list of exercises with tests for reference:
 
 | Exercise Name               | 
